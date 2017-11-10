@@ -1,0 +1,48 @@
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ROJO Parking</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <% if (!user_signed_in?)%>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% else %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag avatar_url(current_user), class: "img-circle avatar_small" %>&nbsp;
+                <%= current_user.fullname%> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Manage Listings</a></li>
+            <li><a href="#">List Your Space </a></li>
+            <li><a href="#">Your Reservations </a></li>
+            <li><a href="#">Your Parking </a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+
+        <% end %>
+
+
+
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="../navbar/">Default</a></li>
+        <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+        <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+      </ul> -->
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
