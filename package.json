@@ -1,0 +1,7 @@
+{
+  "name": "ROJO",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
