@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -53,4 +53,24 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+
+   config.action_mailer.smtp_settings = {
+     address: 'smtp.gmail.com',
+     port: 587,
+     enable_starttls_auto: true,
+     authentication: 'plain',
+     user_name: 'tyler.john.torres@gmail.com',
+     password: 'Tylert123$'
+   }
+   # config.action_mailer.smtp_settings = {
+   #   address: 'smtp.mailgun.org',
+   #   port: 587,
+   #   domain: 'sandbox466fe1eb2f924da5a43cda8c04e7cded.mailgun.org',
+   #   authentication: 'plain',
+   #   user_name: 'postmaster@sandbox466fe1eb2f924da5a43cda8c04e7cded.mailgun.org',
+   #   password: 'c364efc893d3f1e1e8651a5382bae552'
+   # }
+
 end
