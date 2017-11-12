@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  space_type: MyString
+  parking_type: MyString
+  accommodate: 1
+  parking_spot: 1
+  parking_avail: 1
+  listing_name: MyString
+  summary: MyText
+  address: MyString
+  is_lighting: false
+  is_gated: false
+  is_covered: false
+  is_secure: false
+  price: 1
+  active: false
+  user: one
+
+two:
+  space_type: MyString
+  parking_type: MyString
+  accommodate: 1
+  parking_spot: 1
+  parking_avail: 1
+  listing_name: MyString
+  summary: MyText
+  address: MyString
+  is_lighting: false
+  is_gated: false
+  is_covered: false
+  is_secure: false
+  price: 1
+  active: false
+  user: two

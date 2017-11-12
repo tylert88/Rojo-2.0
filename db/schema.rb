@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111004512) do
+ActiveRecord::Schema.define(version: 20171111191843) do
+
+  create_table "parkings", force: :cascade do |t|
+    t.string "space_type"
+    t.string "parking_type"
+    t.integer "accommodate"
+    t.integer "parking_spot"
+    t.integer "parking_avail"
+    t.string "listing_name"
+    t.text "summary"
+    t.string "address"
+    t.boolean "is_lighting"
+    t.boolean "is_gated"
+    t.boolean "is_covered"
+    t.boolean "is_secure"
+    t.integer "price"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parkings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

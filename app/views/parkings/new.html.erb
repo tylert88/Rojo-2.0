@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Create your beautiful place
+  </div>
+  <div class="panel-body">
+    <div class="container">
+
+      <%= form_for @parking do |f| %>
+
+        <div class="row">
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Space Type</label>
+              <%= f.select :space_type, [["Driveway", "Driveway"], ["Street", "Street"], ["Parking Lot", "Parking Lot"]],
+                            id: "space_type", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Parking Type</label>
+              <%= f.select :parking_type, [["Public", "Public"], ["Private", "Private"], ["Shared", "Shared"]],
+                            id: "parking_type", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Accommodate</label>
+              <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                            id: "accommodate", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Parking Spot</label>
+              <%= f.select :parking_spot, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                            id: "parking_spot", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Parking Availible</label>
+              <%= f.select :parking_avail, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                            id: "parking_avail", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+        </div>
+
+        <div><%= f.submit "Create My Parking Spot", class: "btn btn-normal" %></div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
