@@ -15,7 +15,8 @@ before_action :authenticate_user!, except: [:show]
     if @parking.save
       redirect_to listing_parking_path(@parking), notice: "Saved..."
     else
-      render :new , notice: "Something went wrong..."
+      flash[:aleart] = "Something went wrong..."
+      render :new
   end
 end
 
@@ -44,7 +45,7 @@ end
     if @parking.update(parking_params)
        flash[:notice] = "Saved..."
      else
-       flash[:notice] = "Something went wrong..."
+       flash[:aleart] = "Something went wrong..."
     end
      redirect_back(fallback_location: request.referer)
   end

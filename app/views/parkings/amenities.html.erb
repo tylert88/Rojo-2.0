@@ -1,2 +1,58 @@
-<h1>Parking#amenities</h1>
-<p>Find me in app/views/parking/amenities.html.erb</p>
+<div class="row ">
+  <div class="col-md-3">
+<%= render 'parking_menu'%>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        Amenities
+      </div>
+
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @parking do |f| %>
+
+          <div class="row form-group">
+            <div class="col-md-6">
+              <%= f.check_box :is_lighting%> Street lights
+            </div>
+            <div class="col-md-6">
+              <%= f.check_box :is_gated%> Gated
+            </div>
+            <!-- <div class="col-md-3">
+              <%= f.check_box :is_covered%> Covered
+            </div>
+            <div class="col-md-3">
+              <%= f.check_box :is_secure%> Person on site
+            </div> -->
+          </div>
+
+          <div class="row form-group">
+            <!-- <div class="col-md-4">
+              <%= f.check_box :is_lighting%> Street lights
+            </div>
+            <div class="col-md-4">
+              <%= f.check_box :is_gated%> Gated
+            </div> -->
+            <div class="col-md-6">
+              <%= f.check_box :is_covered%> Covered
+            </div>
+            <div class="col-md-6">
+              <%= f.check_box :is_secure%> Person on site
+            </div>
+          </div>
+          <br><br>
+
+          <div class="text-center">
+            <%= f.submit "Save", class: "btn btn-form" %>
+
+          </div>
+
+          <%end%>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
