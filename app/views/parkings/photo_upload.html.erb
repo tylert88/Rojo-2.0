@@ -14,11 +14,28 @@
           <div class="row">
             <div class="col-md-offset-3 col-md-6">
               <!-- Photo Uploads go here -->
+              <%= form_for @parking, url: parking_photos_path(@parking), method: "post", html: {multipart: true} do |f| %>
+              <div class="row">
+                <div class="form-group">
+                  <span class="btn btn-default btn-file text-babu">
+                    Select Photos
+                    <%= file_field_tag "images[]", type: :file, multible: true%>
+                  </span>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <%= f.submit "Add Photos", class: "btn btn-form"%>
+              </div>
+
+              <% end %>
             </div>
           </div>
+
+          <div id="photos"><%= render 'photos/photos_list' %></div>
         </div>
       </div>
+
     </div>
   </div>
-
 </div>

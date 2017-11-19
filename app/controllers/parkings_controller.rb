@@ -1,6 +1,7 @@
 class ParkingsController < ApplicationController
 before_action :set_parking, except: [:index, :new, :create]
 before_action :authenticate_user!, except: [:show]
+before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_upload, :amenities, :location]
 
   def index
     @parkings = current_user.parkings
@@ -33,6 +34,7 @@ end
   end
 
   def photo_upload
+    @photos = @parking.photos
   end
 
   def amenities
@@ -53,6 +55,10 @@ end
   private
     def set_parking
       @parking = Parking.find(params[:id])
+    end
+
+    def is_authorised
+      redirect_to root_path, aleart: "You do not have permission" unless current_user.id == @parking.user_id
     end
 
   def parking_params
