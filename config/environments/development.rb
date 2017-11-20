@@ -64,6 +64,19 @@ Rails.application.configure do
      user_name: 'tyler.john.torres@gmail.com',
      password: 'Tylert123$'
    }
+
+
+   config.paperclip_defaults = {
+     storage: :s3,
+     path: ':class/:attatchment/:id/:style/:filename',
+     s3_host_name: 's3-us-east-2.amazonaws.com',
+     s3_credentials: {
+       bucket: 'rojoparking',
+       access_key_id: 'AKIAJVOP5PLNKZTAVJAQ',
+       secret_access_key: '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',
+       s3_region: 'us-east-2',
+     }
+   }
    # config.action_mailer.smtp_settings = {
    #   address: 'smtp.mailgun.org',
    #   port: 587,
