@@ -22,6 +22,7 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
 end
 
   def show
+    @photos = @parking.photos
   end
 
   def listing
@@ -44,7 +45,11 @@ end
   end
 
   def update
-    if @parking.update(parking_params)
+
+    new_params = parking_params
+    new_params = parking_params.merge(active: true) if is_parking_ready
+
+    if @parking.update(new_params)
        flash[:notice] = "Saved..."
      else
        flash[:aleart] = "Something went wrong..."
@@ -59,6 +64,10 @@ end
 
     def is_authorised
       redirect_to root_path, aleart: "You do not have permission" unless current_user.id == @parking.user_id
+    end
+
+    def is_parking_ready
+        !@parking.active && !@parking.price.blank? && !@parking.listing_name.blank? && !@parking.photos.blank? && !@parking.address.blank?
     end
 
   def parking_params

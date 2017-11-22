@@ -1,20 +1,41 @@
 <ul class="sidebar-list">
   <li class="sidebar-item">
     <%= link_to "Listing", listing_parking_path, class: "sidebar-link active" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
     <%= link_to "Pricing", pricing_parking_path, class: "sidebar-link active" %>
+    <% if !@parking.price.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Description", description_parking_path, class: "sidebar-link active" %>
+    <% if !@parking.listing_name.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Photos", photo_upload_parking_path, class: "sidebar-link active" %>
+    <% if !@parking.photos.blank? %>
+      <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Amenities", amenities_parking_path, class: "sidebar-link active" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
     <%= link_to "Location", location_parking_path, class: "sidebar-link active" %>
-  </li>
+    <% if !@parking.address.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>  </li>
 </ul>
+<hr>
+
+<% is_ready = !@parking.active && !@parking.price.blank? && !@parking.listing_name.blank? && !@parking.photos.blank? && !@parking.address.blank? %>
+
+<%= form_for @parking do |f| %>
+<%= f.hidden_field :active, value: true %>
+<%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+<% end %>
