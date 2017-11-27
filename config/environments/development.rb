@@ -62,7 +62,7 @@ Rails.application.configure do
      enable_starttls_auto: true,
      authentication: 'plain',
      user_name: ENV["GMAIL_ACCOUNT"],
-     password: ENV["GMAIL_PW"] 
+     password: ENV["GMAIL_PW"]
    }
 
 
@@ -77,13 +77,4 @@ Rails.application.configure do
        s3_region: 'us-east-2',
      }
    }
-   # config.action_mailer.smtp_settings = {
-   #   address: 'smtp.mailgun.org',
-   #   port: 587,
-   #   domain: 'sandbox466fe1eb2f924da5a43cda8c04e7cded.mailgun.org',
-   #   authentication: 'plain',
-   #   user_name: 'postmaster@sandbox466fe1eb2f924da5a43cda8c04e7cded.mailgun.org',
-   #   password: 'c364efc893d3f1e1e8651a5382bae552'
-   # }
-
 end
