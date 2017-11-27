@@ -124,7 +124,6 @@
     <hr>
 
 <!-- Google Map -->
-<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initialize"></script> -->
 
   <div class="row">
 
@@ -161,11 +160,35 @@
   </div>
   <hr>
 
+  <!-- Near-by Parking -->
+    <div class="row">
+        <h3>Near By</h3>
+        <% for parking in @parking.nearbys(10)%>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+              <%= image_tag parking.cover_photo(:medium) %>
+            </div>
+            <div class="panel-body">
+              <%= link_to parking.listing_name, parking %><br>
+              (<%= parking.distance.round(2) %> miles away)
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
 </div>
+
 
 
   <!-- Right panel -->
   <div class="col-md-4">
     <!-- Reservation Form -->
+    <%= render 'reservations/form'%>
+
+
+
+
+
   </div>
 </div>

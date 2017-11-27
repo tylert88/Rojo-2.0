@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122001815) do
+ActiveRecord::Schema.define(version: 20171122185147) do
 
   create_table "parkings", force: :cascade do |t|
     t.string "space_type"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20171122001815) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.index ["parking_id"], name: "index_photos_on_parking_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "parking_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "price"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_id"], name: "index_reservations_on_parking_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

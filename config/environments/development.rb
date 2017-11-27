@@ -61,8 +61,8 @@ Rails.application.configure do
      port: 587,
      enable_starttls_auto: true,
      authentication: 'plain',
-     user_name: 'tyler.john.torres@gmail.com',
-     password: 'Tylert123$'
+     user_name: ENV["GMAIL_ACCOUNT"],
+     password: ENV["GMAIL_PW"] 
    }
 
 
@@ -72,8 +72,8 @@ Rails.application.configure do
      s3_host_name: 's3-us-east-2.amazonaws.com',
      s3_credentials: {
        bucket: 'rojoparking',
-       access_key_id: 'AKIAJVOP5PLNKZTAVJAQ',
-       secret_access_key: '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',
+       access_key_id: ENV["S3_ACCESS_KEY_ID"],
+       secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
        s3_region: 'us-east-2',
      }
    }

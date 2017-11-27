@@ -57,7 +57,34 @@ end
      redirect_back(fallback_location: request.referer)
   end
 
+
+  def preload
+    # ----Reservations----
+    today = Date.today
+    reservations = @parking.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @parking)
+    }
+
+    render json: output
+  end
+
+
+
   private
+    def is_conflict(start_date, end_date, parking)
+      check = parking.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+      check.size > 0? true : false
+    end
+
     def set_parking
       @parking = Parking.find(params[:id])
     end
@@ -70,7 +97,7 @@ end
         !@parking.active && !@parking.price.blank? && !@parking.listing_name.blank? && !@parking.photos.blank? && !@parking.address.blank?
     end
 
-  def parking_params
-    params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active)
-  end
+    def parking_params
+      params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active)
+    end
 end
