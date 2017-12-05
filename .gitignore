@@ -24,8 +24,4 @@
 
 /config/local_env.yml
 .env
-.config/secrets
 /config/secrets.yml
-./config/secrets.yml
-.secrets.yml
-./secrets
