@@ -17,6 +17,9 @@
       <div class="row ">
         <div class="col-md-8">
           <label>Price Range: </label>
+          <div id="slider-range">
+
+          </div>
         </div>
         <div class="col-md-2">
           <label>Min Price</label>
@@ -183,4 +186,25 @@ $('#filter').click(function(){
   }
   open = !open
 })
+</script>
+
+<script>
+  $(function(){
+    $("#q_price_gteq").val('1')
+    $("#q_price_lseq").val('50')
+
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 100,
+      values: [1,50],
+      slide: function(event, ui) {
+        $("#q_price_gteq").val(ui.values[0])
+        $("#q_price_lteq").val(ui.values[1])
+      }
+    })
+    $(".ui-widget-header").css('background', '#00A699')
+    $(".ui-state-default, .ui-widget-content").css('background', 'white')
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699')
+  })
 </script>
