@@ -5,8 +5,18 @@
           <%= image_tag parking.cover_photo(:medium) %>
         </div>
         <div class="panel-body">
-          <%= link_to parking.listing_name, parking %>
+          <%= link_to parking.listing_name, parking %> <br>
+          $<%= parking.price %> - <%= parking.space_type %> - <%= pluralize(parking.parking_spot, "spots") %>
+          <div id="star_<%= parking.id %>"></div> <%= pluralize(parking.average_rating, "review") %>
         </div>
       </div>
     </div>
+
+    <script>
+      $('#star_<%= parking.id %>').raty({
+        path: '/assets',
+        readonly: true,
+        score: <%= parking.average_rating %>
+      });
+    </script>
 <% end %>
