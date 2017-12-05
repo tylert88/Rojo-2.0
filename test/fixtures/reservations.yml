@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  parking: one
+  start_date: 2017-11-22 11:51:47
+  end_date: 2017-11-22 11:51:47
+  price: 1
+  total: 1
+
+two:
+  user: two
+  parking: two
+  start_date: 2017-11-22 11:51:47
+  end_date: 2017-11-22 11:51:47
+  price: 1
+  total: 1

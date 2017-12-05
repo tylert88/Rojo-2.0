@@ -1,0 +1,189 @@
+<div id="main">
+  <div id="left">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
+        More Filters <i class="fa fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+<!-- Search panel will be here  -->
+<div class="row">
+  <br>
+    <div class="collapse" id="collapsePanel">
+
+      <%= search_form_for @search, url: search_path, remote: true do |f| %>
+
+      <div class="row ">
+        <div class="col-md-8">
+          <label>Price Range: </label>
+        </div>
+        <div class="col-md-2">
+          <label>Min Price</label>
+          <%= f.text_field :price_gteq, class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <label>Max Price</label>
+          <%= f.text_field :price_lteq, class: "form-control" %>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= text_field_tag :start_date, params[:start_date], readonly: true,  placeholder: "Start Date", class: "form-control datepicker" %>
+        </div>
+        <div class="col-md-6">
+          <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
+        </div>
+      </div>
+      <hr>
+
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= check_box_tag "q[parking_type_eq_any][]", "Entire" %> Entire Parking
+        </div>
+        <div class="col-md-4">
+          <%= check_box_tag "q[parking_type_eq_any][]", "Private" %> PrivateParking
+        </div>
+        <div class="col-md-4">
+          <%= check_box_tag "q[parking_type_eq_any][]", "Public" %> Public Parking
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group select">
+            <label>Spots Availible</label>
+            <%= f.select :parking_spot_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                          id: "parking_spot", prompt: "Select...", class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group select">
+            <label>Spots Availible</label>
+            <%= f.select :parking_spot_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                          id: "parking_spot", prompt: "Select...", class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group select">
+            <label>Spots Availible</label>
+            <%= f.select :parking_spot_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                          id: "parking_spot", prompt: "Select...", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-4 ">
+          <%= check_box_tag "q[is_lighting_eq]", true %> Lighting
+        </div>
+        <div class="col-md-4 ">
+          <%= check_box_tag "q[is_covered_eq]", true %> Covered
+        </div>
+        <div class="col-md-4 ">
+          <%= check_box_tag "q[is_gated_eq]", true %> Gated
+        </div>
+        <div class="col-md-4 ">
+          <%= check_box_tag "q[is_secure_eq]", true %> Secured
+        </div>
+      </div>
+      <hr>
+
+      <div class="row text-center">
+        <%= f.submit "Search", class: "btn btn-form" %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+
+  <div class="row" id="parking_listing">
+    <%= render partial: "parkings/parkings_list", locals: {parkings: @arrParkings} %>
+  </div>
+
+ </div>
+</div>
+
+
+  <div id="right">
+<!-- Google maps will be here  -->
+<div id="map" style="width: 100%; height: 100%">
+
+  <script>
+
+    function initialize(parkings) {
+      let location = {lat:39.733488, lng:-104.992574}
+
+      google.maps.event.addDomListener(window, 'load', function() {
+        initialize(<%= raw @arrParkings.to_json %>)
+      })
+
+       if (parkings.length > 0) {
+        location = {lat: parkings[0].latitude, lng: parkings[0].longitude}
+      }
+
+      let map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 12
+      })
+
+      let marker, infowindow;
+
+      parkings.forEach(function(parking) {
+        marker = new google.maps.Marker({
+          position: {lat: parking.latitude, lng: parking.longitude},
+          map: map
+        })
+
+        infowindow = new google.maps.InfoWindow({
+          content: "<div class='map_price'>$" + parking.price + "</div>"
+        })
+          infowindow.open(map, marker)
+      })
+    }
+
+  </script>
+  <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5NsjSuZ1HWVbbAkDkH_oOo1dGaZiF6dI&callback=initialize">
+  </script>
+
+    </div>
+  </div>
+</div>
+
+<script>
+$('#start_date').datepicker({
+  dateFormat: 'dd-mm-yy',
+  minDate: 0,
+  maxDate: '3m',
+  onSelect: function(selected) {
+    $('#end_date').datepicker("option", "minDate", selected);
+    $('#end_date').attr("disabled", false);
+  }
+});
+
+$('#end_date').datepicker({
+  dateFormat: 'dd-mm-yy',
+  minDate: 0,
+  maxDate: '3m',
+  onSelect: function(selected) {
+    $('#start_date').datepicker("option", "maxDate", selected);
+  }
+});
+
+let open = true
+
+$('#filter').click(function(){
+  if (open) {
+    $('#filter').html("More Filters <i class='fa fa-chevron-up'></i>")
+  } else {
+    $('#filter').html("More Filters <i class='fa fa-chevron-down'></i>")
+  }
+  open = !open
+})
+</script>

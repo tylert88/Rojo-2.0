@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122185147) do
+ActiveRecord::Schema.define(version: 20171127204008) do
 
   create_table "parkings", force: :cascade do |t|
     t.string "space_type"
@@ -57,6 +57,22 @@ ActiveRecord::Schema.define(version: 20171122185147) do
     t.datetime "updated_at", null: false
     t.index ["parking_id"], name: "index_reservations_on_parking_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.integer "star", default: 1
+    t.integer "parking_id"
+    t.integer "reservation_id"
+    t.integer "guest_id"
+    t.integer "host_id"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_reviews_on_guest_id"
+    t.index ["host_id"], name: "index_reviews_on_host_id"
+    t.index ["parking_id"], name: "index_reviews_on_parking_id"
+    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -23,6 +23,7 @@ end
 
   def show
     @photos = @parking.photos
+    @guest_reviews = @parking.guest_reviews
   end
 
   def listing
@@ -60,6 +61,7 @@ end
 
   def preload
     # ----Reservations----
+
     today = Date.today
     reservations = @parking.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 
@@ -78,8 +80,8 @@ end
   end
 
 
-
   private
+
     def is_conflict(start_date, end_date, parking)
       check = parking.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
       check.size > 0? true : false

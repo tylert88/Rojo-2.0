@@ -1,0 +1,50 @@
+ <div class="row">
+   <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"> <%= link_to "Your Listings", parkings_path, class: "sidebar-link" %> </li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"> <%= link_to "Your Spots", your_spots_path, class: "sidebar-link active" %> </li>
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Spots
+      </div>
+      <div class="panel-body">
+
+        <% @spots.each do |spot| %>
+
+          <div class="row">
+            <div class="col-md-2">
+              <%= spot.start_date.strftime('%v') %>
+            </div>
+
+            <div class="col-md-2">
+              <%= link_to parking_path(spot.parking) do %>
+                <%= image_tag spot.parking.cover_photo(:thumb) %>
+              <% end %>
+            </div>
+
+            <div class="col-md-5">
+              <%= link_to spot.parking.listing_name, parking_path(spot.parking) %><br><br>
+              <span>
+                <%= image_tag avatar_url(spot.parking.user), class: "img-circle avatar-small" %>
+                <%= link_to user_path(spot.parking.user) do %>
+                  <%= spot.parking.user.fullname %>
+                <% end %>
+              </span>
+            </div>
+
+            <div class="col-md-3 text-right">
+              <%= render partial: "reviews/guest_form", locals: {reservation: spot} %>
+            </div>
+          </div>
+          <hr>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

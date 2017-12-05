@@ -1,0 +1,11 @@
+// On divs with Photo as the ID, re render the photos list
+$('#photos').html("<%= j render 'photos_list' %>")
+<% if @parking.photos .blank? %>
+$('#photo_check').hide();
+<% end %>
+
+<% if !@parking.active && !@parking.price.blank? && !@parking.listing_name.blank? && !@parking.photos.blank? && !@parking.address.blank? %>
+    $('#publish_button').attr('disabled', false)
+<% else %>
+    $('#publish_button').attr('disabled', true)
+<% end %>

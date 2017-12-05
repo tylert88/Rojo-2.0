@@ -1,0 +1,12 @@
+<% parkings.each do |parking| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading preview">
+          <%= image_tag parking.cover_photo(:medium) %>
+        </div>
+        <div class="panel-body">
+          <%= link_to parking.listing_name, parking %>
+        </div>
+      </div>
+    </div>
+<% end %>
