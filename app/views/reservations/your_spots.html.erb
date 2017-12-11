@@ -19,6 +19,7 @@
           <div class="row">
             <div class="col-md-2">
               <%= spot.start_date.strftime('%v') %>
+              <p><%= spot.status %></p>
             </div>
 
             <div class="col-md-2">
@@ -38,7 +39,7 @@
             </div>
 
             <div class="col-md-3 text-right">
-              <%= render partial: "reviews/guest_form", locals: {reservation: spot} %>
+              <%= render partial: "reviews/guest_form", locals: {reservation: spot} if spot.Approved? %>
             </div>
           </div>
           <hr>

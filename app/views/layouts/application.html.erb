@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ROJO</title>
+    <title>ROJO Parking</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FcO357Ig5JR05ydhZ5331hfaoIE4sy8&libraries=places"></script>
@@ -11,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css"> -->
   </head>
 
   <body>
@@ -19,10 +19,12 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/message' %>
 
+    <% if current_user %>
+      <input type="hidden" id="user_id" value="<%= current_user.id %>">
+    <% end %>
 
     <div class="container">
       <%= yield %>
     </div>
-
   </body>
 </html>

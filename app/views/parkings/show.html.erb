@@ -43,7 +43,7 @@
       </div>
 
     <div class="row text-center">
-      <div class="col-md-3"><%= pluralize(@parking.accommodate, "Spot") %></div>
+      <div class="col-md-3"><%= pluralize(@parking.parking_avail, "Spot") %></div>
       <div class="col-md-3"><%= @parking.space_type %></div>
       <div class="col-md-3"><%= @parking.parking_type %></div>
     </div>
@@ -76,7 +76,7 @@
           <div class="col-md-6">
             <ul class="amenities">
               <li class="<%= 'text-line-through' if !@parking.is_covered %>">Covered</li>
-              <li class="<%= 'text-line-through' if !@parking.is_secure %>">Secure</li>
+              <li class="<%= 'text-line-through' if !@parking.is_secure %>">Attendent onsite</li>
             </ul>
           </div>
 
@@ -117,11 +117,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
   <% end %>
-
-    </div>
-    <hr>
+  </div>
+<hr>
 
 <!-- REVIEWS -->
   <div class="row">

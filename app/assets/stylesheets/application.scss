@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
+@import "fullcalendar";
 
 body {
   color: #565a5c;
@@ -152,7 +153,7 @@ a {
   width: 100%;
 }
 
-//////////////////////////////////////FORMS//////////////////////////////////////////////////
+// FORMS
 .form-group {
   margin-bottom: 25px;
 }
@@ -169,6 +170,15 @@ a {
 
 .form-group textarea {
   border: 1px solid #00a699;
+}
+
+.form-group input[type="radio"] {
+  height: 15px;
+  margin-right: 10px;
+}
+
+.btn-group label {
+  margin-right: 15px;
 }
 
 .form-group select {
@@ -274,7 +284,7 @@ a {
   width: 100%;
 }
 
-// PARKING SHOW
+// ROOM SHOW
 .amenities li {
   margin-bottom: 10px;
   font-size: 16px;
@@ -351,4 +361,147 @@ a {
 .banner {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+// CALENDAR
+.fc-content.Waiting {
+  background-color: #c9cc6d;
+}
+
+.fc-past {
+  background-color: lightgray;
+}
+
+.fc-day {
+  position: relative;
+}
+
+.fc-content {
+  background-color: #00a699;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.fc-event {
+  border: 0px;
+  background-color: transparent;
+}
+
+.fc-title {
+  font-size: 14px;
+  position: relative;
+  top: 7px;
+  left: 20px;
+}
+
+.day-price {
+  position: absolute;
+  color: #eaa90b;
+  bottom: 2px;
+  right: 2px;
+}
+
+.badge {
+  background-color: #ff5a5f;
+  position: relative;
+  top: -15px;
+  left: -5px;
+}
+
+#add-card form {
+  width: 480px;
+  margin: 20px auto;
+}
+
+#add-card label {
+  position: relative;
+  color: #6a7c94;
+  font-weight: 400;
+  height: 48px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#add-card label > span {
+  float: left;
+}
+
+.field {
+  background: white;
+  box-sizing: border-box;
+  font-weight: 400;
+  border: 1px solid #cfd7df;
+  border-radius: 24px;
+  color: #32315e;
+  outline: none;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 20px;
+  cursor: text;
+  width: 76%;
+  float: right;
+}
+
+.field::-webkit-input-placeholder {
+  color: #cfd7df;
+}
+.field::-moz-placeholder {
+  color: #cfd7df;
+}
+.field:-ms-input-placeholder {
+  color: #cfd7df;
+}
+
+.field:focus,
+.field.StripeElement--focus {
+  border-color: #07e356;
+}
+
+#add-card button {
+  float: left;
+  display: block;
+  background-image: linear-gradient(-180deg, #96ccb3 0%, #67e4ab 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 0 #19a364;
+  color: white;
+  border-radius: 24px;
+  border: 0;
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  width: 80%;
+  height: 48px;
+  margin-left: 80px;
+  outline: none;
+}
+
+#add-card button:focus {
+  background: #67e4ab;
+}
+
+#add-card button:active {
+  background: #67e4ab;
+}
+
+.outcome {
+  float: left;
+  width: 100%;
+  padding-top: 8px;
+  min-height: 20px;
+  text-align: center;
+}
+
+.success,
+.error {
+  display: none;
+  font-size: 13px;
+}
+
+.success.visible,
+.error.visible {
+  display: inline;
+}
+
+.error {
+  color: #e4584c;
 }

@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <span><i class="fa fa-bolt" style="color: #ffb400"></i> $<%= @parking.price %></span>
+    <span><% if @parking.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i><% end %>  $<%= @parking.price %></span>
     <span class="pull-right">Per Day</span>
   </div>
 
@@ -41,7 +41,11 @@
 
     <br>
 
-        <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+    <% if @parking.Instant? %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+     <% else %>
+          <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+        <% end %>
       <% end %>
     </div>
 </div>

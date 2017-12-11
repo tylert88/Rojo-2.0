@@ -27,6 +27,21 @@
 
           <div class="col-md-4 select">
             <div class="form-group">
+              <label>Parking Availible</label>
+              <%= f.select :parking_avail, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
+                            id: "parking_avail", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4 select">
+            <div class="form-group">
+              <label>Booking Type</label>
+              <%= f.select :instant, Parking.instants.map {|key, value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <!-- <div class="col-md-4 select">
+            <div class="form-group">
               <label>Accommodate</label>
               <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
                             id: "accommodate", prompt: "Select...", class: "form-control" %>
@@ -39,15 +54,15 @@
               <%= f.select :parking_spot, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
                             id: "parking_spot", prompt: "Select...", class: "form-control" %>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-md-4 select">
+          <!-- <div class="col-md-4 select">
             <div class="form-group">
               <label>Parking Availible</label>
               <%= f.select :parking_avail, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
                             id: "parking_avail", prompt: "Select...", class: "form-control" %>
             </div>
-          </div>
+          </div> -->
 
         </div>
 

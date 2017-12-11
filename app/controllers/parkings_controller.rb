@@ -12,6 +12,10 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
   end
 
   def create
+    if !current_user.is_active_host
+      return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
+    end
+
     @parking = current_user.parkings.build(parking_params)
     if @parking.save
       redirect_to listing_parking_path(@parking), notice: "Saved..."
@@ -63,7 +67,7 @@ end
     # ----Reservations----
 
     today = Date.today
-    reservations = @parking.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+    reservations = @parking.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
 
     render json: reservations
   end
@@ -83,7 +87,7 @@ end
   private
 
     def is_conflict(start_date, end_date, parking)
-      check = parking.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+      check = parking.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
       check.size > 0? true : false
     end
 
@@ -100,6 +104,6 @@ end
     end
 
     def parking_params
-      params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active)
+      params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant)
     end
 end

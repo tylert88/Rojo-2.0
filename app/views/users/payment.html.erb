@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Payment Method", payment_method_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Payout Method", payout_method_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Notification Settings", notification_settings_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Payment Method</div>
+      <div class="panel-body">
+        <div class="container">
+            <%= form_tag("/add_card", method: "post", id: "add-card") do %>
+
+                <label>
+                  <span>Name</span>
+                  <input name="cardholder-name" class="field" placeholder="Jane Doe" />
+                </label>
+
+                <label>
+                  <span>Card</span>
+                  <div id="card-element" class="field"></div>
+                </label>
+
+                <div class="outcome">
+                  <div class="error" role="alert"></div>
+                </div>
+
+                <% if current_user.stripe_id %>
+                  <button type="submit" class="btn btn-normal btn-block">Update Card</button>
+                <% else %>
+                  <button type="submit" class="btn btn-normal btn-block">Add Card</button>
+                <% end %>
+
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  $(function() {
+
+    let stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
+    let elements = stripe.elements();
+
+    let card = elements.create('card', {
+      hidePostalCode: true,
+      style: {
+        base: {
+          iconColor: '#00FF8B',
+          color: '#32315E',
+          lineHeight: '48px',
+          fontWeight: 400,
+          fontFamily: '"Helvetica Neue", "Helvetica", sans-serif',
+          fontSize: '15px',
+
+          '::placeholder': {
+            color: '#CFD7DF',
+          }
+        },
+      }
+    });
+
+    card.mount('#card-element');
+
+    function setOutcome(result) {
+
+      let errorElement = document.querySelector('.error');
+      errorElement.classList.remove('visible');
+
+      if (result.token) {
+        let form = $('#add-card');
+        form.append($('<input type="hidden" name="stripeToken">').val(result.token.id));
+        form.get(0).submit();
+      } else if (result.error) {
+        errorElement.textContent = result.error.message;
+        errorElement.classList.add('visible');
+      }
+    }
+
+    card.on('change', function(event) {
+      setOutcome(event);
+    });
+
+    $('#add-card').on('submit', function(e) {
+      e.preventDefault();
+      let extraDetails = {
+        name: $('input[name=cardholder-name]').value
+      };
+      stripe.createToken(card, extraDetails).then(setOutcome);
+    });
+
+  });
+</script>

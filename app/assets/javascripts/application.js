@@ -11,9 +11,35 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require jquery-ui/slider
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require toastr
+//= require moment
+//= require fullcalendar
+//= require card
+//= require Chart.bundle
+//= require chartkick
+//= require cable
 //= require_tree .
+
+/*global toastr*/
+toastr.options = {
+  closeButton: false,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-left",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "500",
+  timeOut: "2000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut"
+};
