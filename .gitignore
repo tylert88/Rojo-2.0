@@ -24,4 +24,5 @@
 /config/local_env.yml
 .env
 /config/secrets.yml
-/config/initializers
+/config/initializers/stripe.rb
+/config/initializers/twilio.rb
