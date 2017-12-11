@@ -86,6 +86,34 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # This is the configs for instant notifications
+  config.action_cable.url = "ws://hidden-refuge-93553.herokuapp.com/cable"
+
+  config.action_mailer.default_url_options = { host: 'hidden-refuge-93553.herokuapp.com'}
+
+  config.action_mailer.delivery_method = :smtp
+
+   config.action_mailer.smtp_settings = {
+     address: 'smtp.gmail.com',
+     port: 587,
+     enable_starttls_auto: true,
+     authentication: 'plain',
+     user_name: ENV["GMAIL_ACCOUNT"],
+     password: ENV["GMAIL_PW"]
+   }
+
+   config.paperclip_defaults = {
+     storage: :s3,
+     path: ':class/:attatchment/:id/:style/:filename',
+     s3_host_name: 's3-us-east-2.amazonaws.com',
+     s3_credentials: {
+       bucket: 'rojoparking',
+       access_key_id: ENV["S3_ACCESS_KEY_ID"],
+       secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
+       s3_region: 'us-east-2',
+     }
+   }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
