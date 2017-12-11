@@ -21,8 +21,3 @@
 /yarn-error.log
 
 .byebug_history
-/config/local_env.yml
-.env
-/config/secrets.yml
-/config/initializers/stripe.rb
-/config/initializers/twilio.rb
