@@ -6,5 +6,6 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  # url: redis://localhost:6379/1
+  url: redis://hidden-refuge-93553.herokuapp.com/
   channel_prefix: ROJO_production
