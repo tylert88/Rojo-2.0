@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Show full error reports.
-  
+
   # config.consider_all_requests_local = true
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
@@ -98,13 +98,21 @@ Rails.application.configure do
 
   # config.action_mailer.delivery_method = :smtp
 
+   # config.action_mailer.smtp_settings = {
+   #   address: 'smtp.gmail.com',
+   #   port: 587,
+   #   enable_starttls_auto: true,
+   #   authentication: 'plain',
+   #   user_name: ENV["GMAIL_ACCOUNT"],
+   #   password: ENV["GMAIL_PW"]
+   # }
    config.action_mailer.smtp_settings = {
      address: 'smtp.gmail.com',
      port: 587,
      enable_starttls_auto: true,
      authentication: 'plain',
-     user_name: ENV["GMAIL_ACCOUNT"],
-     password: ENV["GMAIL_PW"]
+     user_name: 'tyler.john.torres@gmail.com',
+     password: 'Tylert123$'
    }
 
    config.paperclip_defaults = {
