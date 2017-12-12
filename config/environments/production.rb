@@ -56,9 +56,9 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  
+
   # Show full error reports.
-  config.consider_all_requests_local = true
+  # config.consider_all_requests_local = true
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "ROJO_#{Rails.env}"
@@ -66,8 +66,8 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_deliveries = true
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
@@ -91,10 +91,11 @@ Rails.application.configure do
   # This is the configs for instant notifications
   config.action_cable.url = "WSS://hidden-refuge-93553.herokuapp.com/cable"
 
-  config.action_mailer.default_url_options = { host: 'https://hidden-refuge-93553.herokuapp.com/'}
+  config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'http'}
+  # config.action_mailer.default_url_options = { host: 'https://hidden-refuge-93553.herokuapp.com/'}
   # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
    config.action_mailer.smtp_settings = {
      address: 'smtp.gmail.com',
