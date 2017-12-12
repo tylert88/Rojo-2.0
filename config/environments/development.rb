@@ -68,8 +68,6 @@ Rails.application.configure do
      password: ENV["GMAIL_PW"]
    }
 
-
-
    config.paperclip_defaults = {
      storage: :s3,
      path: ':class/:attatchment/:id/:style/:filename',
