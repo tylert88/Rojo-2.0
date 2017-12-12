@@ -92,8 +92,8 @@ Rails.application.configure do
   # This is the configs for instant notifications
   config.action_cable.url = "WSS://hidden-refuge-93553.herokuapp.com/cable"
 
-  config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
-  # config.action_mailer.default_url_options = { host: 'https://hidden-refuge-93553.herokuapp.com/'}
+  # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default_url_options = { host: 'https://hidden-refuge-93553.herokuapp.com/', protocol: 'http'}
   # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
 
   # config.action_mailer.delivery_method = :smtp
