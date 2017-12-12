@@ -47,7 +47,7 @@ end
 group :production do
   gem 'pg'
   # Use Redis adapter to run Action Cable in production
-  gem 'redis', '~> 3.0'
+  # gem 'redis', '~> 3.0'
 end
 
 group :development do
