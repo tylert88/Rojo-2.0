@@ -90,7 +90,7 @@ Rails.application.configure do
   end
 
   # This is the configs for instant notifications
-  config.action_cable.url = "WSS:https://hidden-refuge-93553.herokuapp.com/cable"
+  config.action_cable.url = "WSS://hidden-refuge-93553.herokuapp.com/cable"
 
   # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
   config.action_mailer.default_url_options = { host: 'https://hidden-refuge-93553.herokuapp.com/', protocol: 'http'}
