@@ -3,12 +3,6 @@ class ParkingsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_upload, :amenities, :location]
 
-  # permit_params :space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant
-
-  def index
-    @parkings = current_user.parkings
-  end
-
   def new
     @parking = current_user.parkings.build
   end
@@ -39,14 +33,15 @@ class ParkingsController < ApplicationController
     # redirect_back(fallback_location: request.referer)
 
       @parking = current_user.parkings.build(parking_params)
-      if @parking.save
-        redirect_to listing_parking_path(@parking), notice: "Saved..."
-      else
-        flash[:alert] = "Something went wrong..."
-        render :new
-      end
-      redirect_back(fallback_location: request.referer)
+    if @parking.save
+      redirect_to listing_parking_path(@parking), notice: "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new
+    end
   end
+
+
 
   def show
     @photos = @parking.photos
