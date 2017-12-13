@@ -92,13 +92,11 @@ Rails.application.configure do
   # This is the configs for instant notifications
   config.action_cable.url = "wss://hidden-refuge-93553.herokuapp.com/cable"
 
-  # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
   config.action_mailer.default_url_options = { host: 'hidden-refuge-93553.herokuapp.com/', protocol: 'https'}
-  # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
 
   config.action_mailer.delivery_method = :smtp
 
-   # ActionMailer::Base.smtp_settings = {
+  # SendGrid settings
    config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
