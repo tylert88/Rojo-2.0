@@ -15,7 +15,16 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     if !current_user.is_active_host
       return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
     end
-
+    # {"utf8"=>"✓",
+    # "authenticity_token"=>"suk5XHLgwDfyVsuxtf7y2XTyZTBirUaGd4f0/x23h8Ylc6H0ltQvWhOSHUWSAfnr2DgqofzoWzN8rR6Ct0p5tQ==",
+    # "parking"=>{
+    #   "space_type"=>"Driveway",
+    #   "parking_type"=>"Public",
+    #   "parking_avail"=>"1",
+    #   "instant"=>"Instant"
+    # }, "commit"=>"Create My Parking Spot"
+    puts "About to add a parking record:"
+    puts params[:parking]
     @parking = Parking.new(params[:parking])
     if @parking.save
       flash[:notice] = "Saved!"
@@ -112,6 +121,6 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     end
 
     def parking_params
-      params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant)
+      params.permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant)
     end
 end
