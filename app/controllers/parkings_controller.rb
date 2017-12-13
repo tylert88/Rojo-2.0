@@ -45,6 +45,7 @@ class ParkingsController < ApplicationController
         flash[:alert] = "Something went wrong..."
         render :new
       end
+      redirect_back(fallback_location: request.referer)
   end
 
   def show
