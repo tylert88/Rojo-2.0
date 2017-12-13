@@ -25,7 +25,7 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     # }, "commit"=>"Create My Parking Spot"
     puts "About to add a parking record:"
     puts params[:parking]
-    @parking = Parking.new(params[:parking])
+    @parking = Parking.new(parking_params)
     if @parking.save
       flash[:notice] = "Saved!"
     else
@@ -121,6 +121,6 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     end
 
     def parking_params
-      params.permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant)
+      params.require(:parking).permit(:space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant)
     end
 end
