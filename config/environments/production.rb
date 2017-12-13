@@ -29,7 +29,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.serve_static_assets = true
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -93,20 +93,21 @@ Rails.application.configure do
   config.action_cable.url = "wss://hidden-refuge-93553.herokuapp.com/cable"
 
   # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
-  config.action_mailer.default_url_options = { host: 'hidden-refuge-93553.herokuapp.com/', protocol: 'http'}
+  config.action_mailer.default_url_options = { host: 'hidden-refuge-93553.herokuapp.com/', protocol: 'https'}
   # config.action_mailer.default_url_options = {:host => 'hidden-refuge-93553.herokuapp.com', :protocol => 'https'}
 
   config.action_mailer.delivery_method = :smtp
 
+   # ActionMailer::Base.smtp_settings = {
    config.action_mailer.smtp_settings = {
-     address: 'smtp.gmail.com',
-     port: 587,
-     enable_starttls_auto: true,
-     authentication: 'plain',
-     user_name: ENV["GMAIL_ACCOUNT"],
-     password: ENV["GMAIL_PW"]
-   }
-
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'hidden-refuge-93553.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
    config.paperclip_defaults = {
      storage: :s3,
