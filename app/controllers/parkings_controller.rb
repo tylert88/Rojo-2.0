@@ -13,7 +13,7 @@ class ParkingsController < ApplicationController
     end
 
       @parking = current_user.parkings.build(parking_params)
-    if @parking.save
+    if @parking.save!
       redirect_to listing_parking_path(@parking), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
