@@ -16,14 +16,22 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
       return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
     end
 
-    @parking = current_user.parkings.build(parking_params)
+    @parking = Parking.new(params[:parking])
     if @parking.save
-      redirect_to listing_parking_path(@parking), notice: "Saved..."
+      flash[:notice] = "Saved!"
     else
-      flash[:alert] = "Something went wrong..."
-      render :new
+      flash[:alert] = "%$&*! Something went wrong..."
+    end
+    redirect_back(fallback_location: request.referer)
+
+    #   @parking = current_user.parkings.build(parking_params)
+    #   if @parking.save
+    #     redirect_to listing_parking_path(@parking), notice: "Saved..."
+    #   else
+    #     flash[:alert] = "Something went wrong..."
+    #     render :new
+    #   end
   end
-end
 
   def show
     @photos = @parking.photos
