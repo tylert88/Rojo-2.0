@@ -20,7 +20,7 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     if @parking.save
       redirect_to listing_parking_path(@parking), notice: "Saved..."
     else
-      flash[:aleart] = "Something went wrong..."
+      flash[:alert] = "Something went wrong..."
       render :new
   end
 end
@@ -57,7 +57,7 @@ end
     if @parking.update(new_params)
        flash[:notice] = "Saved..."
      else
-       flash[:aleart] = "Something went wrong..."
+       flash[:alert] = "Something went wrong..."
     end
      redirect_back(fallback_location: request.referer)
   end
@@ -96,7 +96,7 @@ end
     end
 
     def is_authorised
-      redirect_to root_path, aleart: "You do not have permission" unless current_user.id == @parking.user_id
+      redirect_to root_path, alert: "You do not have permission" unless current_user.id == @parking.user_id
     end
 
     def is_parking_ready
