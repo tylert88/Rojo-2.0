@@ -24,6 +24,6 @@ test:
 #   <<: *default
 #   database: db/production.sqlite3
 production:
-  <<: *default
+  adapter: pg
   url:  <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
