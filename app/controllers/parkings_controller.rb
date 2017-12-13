@@ -1,7 +1,9 @@
 class ParkingsController < ApplicationController
-before_action :set_parking, except: [:index, :new, :create]
-before_action :authenticate_user!, except: [:show]
-before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_upload, :amenities, :location]
+  before_action :set_parking, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:show]
+  before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_upload, :amenities, :location]
+
+  # permit_params :space_type, :parking_type, :accommodate, :parking_spot, :parking_avail, :listing_name, :summary, :address, :is_lighting, :is_gated, :is_covered, :is_secure, :price, :active, :instant
 
   def index
     @parkings = current_user.parkings
@@ -23,23 +25,26 @@ before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_up
     #   "parking_avail"=>"1",
     #   "instant"=>"Instant"
     # }, "commit"=>"Create My Parking Spot"
-    puts "About to add a parking record:"
-    puts params[:parking]
-    @parking = Parking.new(parking_params)
-    if @parking.save
-      flash[:notice] = "Saved!"
-    else
-      flash[:alert] = "%$&*! Something went wrong..."
-    end
-    redirect_back(fallback_location: request.referer)
 
-    #   @parking = current_user.parkings.build(parking_params)
-    #   if @parking.save
-    #     redirect_to listing_parking_path(@parking), notice: "Saved..."
-    #   else
-    #     flash[:alert] = "Something went wrong..."
-    #     render :new
-    #   end
+    # puts "Creating a parking record:"
+    # # puts params[:parking]
+    # @parking = Parking.new(parking_params)
+    # puts @parking
+    # if @parking.save
+    #   flash[:notice] = "Saved!"
+    # else
+    #   puts "WTF - Save damnit!"
+    #   flash[:alert] = "%$&*! Something went wrong..."
+    # end
+    # redirect_back(fallback_location: request.referer)
+
+      @parking = current_user.parkings.build(parking_params)
+      if @parking.save
+        redirect_to listing_parking_path(@parking), notice: "Saved..."
+      else
+        flash[:alert] = "Something went wrong..."
+        render :new
+      end
   end
 
   def show
