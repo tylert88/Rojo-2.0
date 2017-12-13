@@ -3,6 +3,10 @@ class ParkingsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:listing, :pricing, :discription, :photo_upload, :amenities, :location]
 
+  def index
+    @parkings = current_user.parkings
+  end
+  
   def new
     @parking = current_user.parkings.build
   end
