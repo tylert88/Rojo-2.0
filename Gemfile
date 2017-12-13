@@ -45,7 +45,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
 end
 
 # group :production do
@@ -70,6 +70,8 @@ gem 'devise', '~> 4.2'
 gem 'toastr-rails', '~> 1.0'
 
 gem 'dotenv-rails', :groups => [:development, :test]
+
+
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 

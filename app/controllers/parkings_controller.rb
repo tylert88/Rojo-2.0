@@ -11,26 +11,6 @@ class ParkingsController < ApplicationController
     if !current_user.is_active_host
       return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
     end
-    # {"utf8"=>"✓",
-    # "authenticity_token"=>"suk5XHLgwDfyVsuxtf7y2XTyZTBirUaGd4f0/x23h8Ylc6H0ltQvWhOSHUWSAfnr2DgqofzoWzN8rR6Ct0p5tQ==",
-    # "parking"=>{
-    #   "space_type"=>"Driveway",
-    #   "parking_type"=>"Public",
-    #   "parking_avail"=>"1",
-    #   "instant"=>"Instant"
-    # }, "commit"=>"Create My Parking Spot"
-
-    # puts "Creating a parking record:"
-    # # puts params[:parking]
-    # @parking = Parking.new(parking_params)
-    # puts @parking
-    # if @parking.save
-    #   flash[:notice] = "Saved!"
-    # else
-    #   puts "WTF - Save damnit!"
-    #   flash[:alert] = "%$&*! Something went wrong..."
-    # end
-    # redirect_back(fallback_location: request.referer)
 
       @parking = current_user.parkings.build(parking_params)
     if @parking.save
@@ -40,8 +20,6 @@ class ParkingsController < ApplicationController
       render :new
     end
   end
-
-
 
   def show
     @photos = @parking.photos
