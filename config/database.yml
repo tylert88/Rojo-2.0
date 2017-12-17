@@ -5,10 +5,18 @@
 #   gem 'sqlite3'
 #
 #
-default: &default
+# default: &default
+#   adapter: postgresql
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
+
+defaults: &default
   adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 10000
+  encoding: unicode
+  pool: 5
+  min_messages: warning
+  variables:
+    statement_timeout: 5000
 
 development:
   adapter: postgresql
