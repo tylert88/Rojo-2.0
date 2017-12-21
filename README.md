@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">A platform to help those in need of finding a parking spot. </h4>
+<h4 align="center">A platform to help those in need of parking, find a parking spot. </h4>
 
 <p align="center">
     <img src="/Screenshots/home.png">
