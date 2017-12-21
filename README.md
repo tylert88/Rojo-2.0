@@ -1,16 +1,19 @@
-<h1 align="center">
-  <br>
-  <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
+<p align="center">
   <br>
   ROJO Parking
   <br>
-</h1>
+    <img src="/app/assets/images/home.png">
+</p>
 
 <h4 align="center">A platform to help those in need of parking, find a parking spot. </h4>
 
-<p align="center">
-    <img src="/Screenshots/home.png">
-</p>
+<h1 align="center">
+  <br>
+  <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
+</h1>
+
+
+
 
 ## Key Features
 
