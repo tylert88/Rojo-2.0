@@ -18,56 +18,56 @@
 </h1>
 
 <br>
-<h3 align="center"> Find parking spots in your area</h3>
+## align="center"> Find parking spots in your area
 <br>
 <p align="center">
     <img src="/app/assets/images/map.png">
 </p>
 
 <br>
-<h3 align="center"> Filter to find the right one</h3>
+## align="center"> Filter to find the right one
 <br>
 <p align="center">
     <img src="/app/assets/images/map_filter.png">
 </p>
 
 <br>
-<h3 align="center"> Your dashboard</h3>
+## align="center"> Your dashboard
 <br>
 <p align="center">
     <img src="/app/assets/images/dashboard.png">
 </p>
 
 <br>
-<h3 align="center"> Your listings</h3>
+## align="center"> Your listings
 <br>
 <p align="center">
     <img src="/app/assets/images/your_listings.png">
 </p>
 
 <br>
-<h3 align="center"> Your reservations</h3>
+## align="center"> Your reservations
 <br>
 <p align="center">
     <img src="/app/assets/images/your_reservations.png">
 </p>
 
 <br>
-<h3 align="center"> Spots you parked in</h3>
+## align="center"> Spots you parked in
 <br>
 <p align="center">
     <img src="/app/assets/images/your_spots.png">
 </p>
 
 <br>
-<h3 align="center"> Calendar to show all your reservations</h3>
+## align="center"> Calendar to show all your reservations
 <br>
 <p align="center">
     <img src="/app/assets/images/calender.png">
 </p>
 
 <br>
-<h3 align="center"> Weekly revenue tracker</h3>
+## align="center"> Weekly revenue tracker
 <br>
 <p align="center">
     <img src="/app/assets/images/revenue.png">
