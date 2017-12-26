@@ -18,56 +18,56 @@
 </h1>
 
 <br>
-## align="center"> Find parking spots in your area
+##  Find parking spots in your area
 <br>
 <p align="center">
     <img src="/app/assets/images/map.png">
 </p>
 
 <br>
-## align="center"> Filter to find the right one
+##  Filter to find the right one
 <br>
 <p align="center">
     <img src="/app/assets/images/map_filter.png">
 </p>
 
 <br>
-## align="center"> Your dashboard
+##  Your dashboard
 <br>
 <p align="center">
     <img src="/app/assets/images/dashboard.png">
 </p>
 
 <br>
-## align="center"> Your listings
+##  Your listings
 <br>
 <p align="center">
     <img src="/app/assets/images/your_listings.png">
 </p>
 
 <br>
-## align="center"> Your reservations
+##  Your reservations
 <br>
 <p align="center">
     <img src="/app/assets/images/your_reservations.png">
 </p>
 
 <br>
-## align="center"> Spots you parked in
+##  Spots you parked in
 <br>
 <p align="center">
     <img src="/app/assets/images/your_spots.png">
 </p>
 
 <br>
-## align="center"> Calendar to show all your reservations
+##  Calendar to show all your reservations
 <br>
 <p align="center">
     <img src="/app/assets/images/calender.png">
 </p>
 
 <br>
-## align="center"> Weekly revenue tracker
+##  Weekly revenue tracker
 <br>
 <p align="center">
     <img src="/app/assets/images/revenue.png">
