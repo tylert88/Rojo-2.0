@@ -8,7 +8,7 @@
     <img src="/app/assets/images/home.png">
 </p>
 
-<h4 align="center">A platform to help those in need of parking, find a parking spot. </h4>
+<h2 align="center">A platform to help those in need of parking, find a parking spot. </h2>
 
 <h1 align="center">
   <br>
@@ -18,7 +18,7 @@
 </h1>
 
 <br>
-<h2 align="center"> Find parking spots in your area</h2>
+<h3 align="center"> Find parking spots in your area</h3>
 <br>
 <p align="center">
     <img src="/app/assets/images/map.png">
