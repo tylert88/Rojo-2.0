@@ -14,12 +14,11 @@
   <br>
   <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
   <br>
-  ROJO Parking
-  <br>
+
 </h1>
 
 <br>
-<h3 align="center"> Find parking spots in your area</h3>
+<h2 align="center"> Find parking spots in your area</h2>
 <br>
 <p align="center">
     <img src="/app/assets/images/map.png">
