@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <h1 align="center">
   <br>
   ROJO Parking
@@ -20,8 +18,45 @@
   <br>
 </h1>
 
+<br>
+<p align="center">
+    <img src="/app/assets/images/map.png">
+</p>
 
+<br>
+<p align="center">
+    <img src="/app/assets/images/map_filter.png">
+</p>
 
+<br>
+<p align="center">
+    <img src="/app/assets/images/dashboard.png">
+</p>
+
+<br>
+<p align="center">
+    <img src="/app/assets/images/your_listings.png">
+</p>
+
+<br>
+<p align="center">
+    <img src="/app/assets/images/your_reservations.png">
+</p>
+
+<br>
+<p align="center">
+    <img src="/app/assets/images/your_spots.png">
+</p>
+
+<br>
+<p align="center">
+    <img src="/app/assets/images/calender.png">
+</p>
+
+<br>
+<p align="center">
+    <img src="/app/assets/images/revenue.png">
+</p>
 
 ## Key Features
 
@@ -29,42 +64,17 @@
 * Find parking in your area
 * Pay and recieve funds securly through Stripe
 * Monitor your weekly revenues
-* Get user and host reviews instantly
-=======
-<h1 align="center">
-  <br>
-  <img src="/Screenshots/ROJOTWO.mov" width="200">
-  <br>
-  ROJO Parking
-  <br>
-</h1>
+* # Get user and host reviews instantly
+            <h1 align="center">
+          <br>
+        <img src="/Screenshots/ROJOTWO.mov" width="200">
+      <br>
+  ROJO Parking <br>
+  </h1>
 
 <h4 align="center">A platform to help those in need of finding a parking spot. </h4>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
-
-## Key Features
-
-* LivePreview - Make changes, See changes
-  * Instantly see what your Markdown documents look like in HTML as you create
-    them.
-* Sync Scrolling
-  * While you type, LivePreview will automatically scroll to the current
-    location you're editing.
-* GitHub Flavored Markdown
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  * Write distraction free.
-* Cross platform
-  * Windows, Mac and Linux ready.
->>>>>>> Readme
+!(https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
 ## How To Use
 
