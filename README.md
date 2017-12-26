@@ -2,13 +2,13 @@
   <br>
   ROJO Parking
   <br>
+  <h2 align="center">A platform to help those in need of parking, find a parking spot. </h2>
+
 </h1>
 <br>
 <p align="center">
     <img src="/app/assets/images/home.png">
 </p>
-
-<h2 align="center">A platform to help those in need of parking, find a parking spot. </h2>
 
 <h1 align="center">
   <br>
