@@ -1,5 +1,8 @@
 <h1 align="center">
   <br>
+  <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
+  <br>
+  <br>
   ROJO Parking
   <br>
   <h2 align="center">A platform to help those in need of parking, find a parking spot. </h2>
@@ -9,9 +12,6 @@
 
 <p align="center">
     <img src="/app/assets/images/home.png">
-    <br>
-    <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
-    <br>
 </p>
 
 ## Find parking spots in your area
