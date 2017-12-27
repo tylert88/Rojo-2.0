@@ -96,16 +96,6 @@
 * Pay and recieve funds securly through Stripe
 * Monitor your weekly revenues
 * # Get user and host reviews instantly
-            <h1 align="center">
-          <br>
-        <img src="/Screenshots/ROJOTWO.mov" width="200">
-      <br>
-  ROJO Parking <br>
-  </h1>
-
-<h4 align="center">A platform to help those in need of finding a parking spot. </h4>
-
-!(https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
 
 ## How To Use
 
