@@ -10,12 +10,13 @@
     <img src="/app/assets/images/home.png">
 </p>
 
-<h1 align="center">
   <br>
   <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
   <br>
 
-</h1>
+  <p align="center">
+      <img src="/app/assets/images/github1.mov">
+  </p>
 
 <br>
 
