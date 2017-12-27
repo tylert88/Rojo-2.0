@@ -9,11 +9,10 @@
 
 <p align="center">
     <img src="/app/assets/images/home.png">
+    <br>
+    <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
+    <br>
 </p>
-
-  <br>
-  <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
-  <br>
 
 ## Find parking spots in your area
 
