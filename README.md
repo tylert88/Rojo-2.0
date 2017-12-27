@@ -63,7 +63,7 @@
 ##  Calendar to show all your reservations
 <br>
 <p align="center">
-    <img src="/app/assets/images/calendar.png">
+    <img src="/app/assets/images/calender.png">
 </p>
 
 <br>
