@@ -63,11 +63,13 @@
 ##  Calendar to show all your reservations
 <br>
 <p align="center">
-    <img src="/app/assets/images/calender.png">
+    <img src="/app/assets/images/calendar.png">
 </p>
 
 <br>
-##  Weekly revenue tracker
+
+## Weekly revenue tracker
+
 <br>
 <p align="center">
     <img src="/app/assets/images/revenue.png">
