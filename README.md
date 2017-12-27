@@ -1,7 +1,7 @@
 <h1 align="center">
     ROJO Parking
     <br>
-  
+  <p>("ROJO", Short for "Front row joe")</p>
   <br>
 
   <h2 align="center">A platform to help those in need of parking, find parking. </h2>
