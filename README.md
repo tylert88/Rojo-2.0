@@ -73,7 +73,7 @@
 
 <br>
 
-## Calendar to show all your reservations
+## Calender to show all your reservations
 
 <br>
 <p align="center">
