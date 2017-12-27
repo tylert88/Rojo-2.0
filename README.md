@@ -6,7 +6,7 @@
     <br>
   <br>
 
-  <h2 align="center">A platform to help those in need of parking, find a parking. </h2>
+  <h2 align="center">A platform to help those in need of parking, find parking. </h2>
 
 </h1>
 <br>
