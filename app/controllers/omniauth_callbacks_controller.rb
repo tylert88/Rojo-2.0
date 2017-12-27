@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       @user.merchant_id = auth_data.uid
-      @user.save!
+      @user.save
 
       if !@user.merchant_id.blank?
 
