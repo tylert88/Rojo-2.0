@@ -2,7 +2,7 @@
     ROJO Parking
     <br>
   <br>
-    <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
+    <img src="/app/assets/images/booking.gif">
     <br>
   <br>
 
