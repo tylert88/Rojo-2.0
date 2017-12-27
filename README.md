@@ -13,7 +13,6 @@
   <br>
   <img src="https://media.giphy.com/media/xT1R9SqLUHlhF2TW8w/giphy.gif" width="500">
   <br>
-
   <p align="center">
       <img src="/app/assets/images/github1.mov">
   </p>
