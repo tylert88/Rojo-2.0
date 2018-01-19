@@ -7,6 +7,18 @@
 <h2 align="center">A platform to help those in need of parking, find parking. </h2>
 <br>
 
+## Key Features
+
+* Create a secure Account
+* Find parking in your area
+* Pay and recieve funds securly through Stripe
+* Monitor your weekly revenues
+* # Get user and host reviews instantly
+
+## How To Use
+
+Visit the site live [HERE](https://hidden-refuge-93553.herokuapp.com/)
+
 <p align="center">
     <img src="/app/assets/images/home.png">
 </p>
@@ -80,15 +92,3 @@
 <p align="center">
     <img src="/app/assets/images/revenue.png">
 </p>
-
-## Key Features
-
-* Create a secure Account
-* Find parking in your area
-* Pay and recieve funds securly through Stripe
-* Monitor your weekly revenues
-* # Get user and host reviews instantly
-
-## How To Use
-
-Visit the site live [HERE](https://hidden-refuge-93553.herokuapp.com/)
