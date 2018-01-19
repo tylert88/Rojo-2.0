@@ -13,7 +13,7 @@
 * Find parking in your area
 * Pay and recieve funds securly through Stripe
 * Monitor your weekly revenues
-* # Get user and host reviews instantly
+* Get user and host reviews instantly
 
 ## How To Use
 
