@@ -17,7 +17,7 @@
 
 ## How To Use
 
-Visit the site live [HERE](https://hidden-refuge-93553.herokuapp.com/)
+
 
 <p align="center">
     <img src="/app/assets/images/home.png">
